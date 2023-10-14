@@ -1,0 +1,146 @@
+@import '../../../App.scss';
+
+.header__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  transition: all .4s;
+}
+
+.headerHide {
+  transform: translateY(-90%);
+  opacity: 0
+}
+
+.header__logo {
+  cursor: pointer;
+  width: 100px;
+  height: 70px;
+
+  @media (max-width: 1025px) {
+    grid-column: 2/3;
+    margin: 0 auto;
+  }
+}
+
+.header__content {
+  @include filter;
+  align-items: center;
+  grid-area: h;
+  position: relative;
+}
+
+.header__content_active {
+  z-index: 11;
+  pointer-events: all;
+}
+
+.header__menu {
+  border-bottom: 2px dotted var(--color);
+  padding: 0 100px;
+  display: flex;
+  gap: 200px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 1025px) {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    grid-template: 70px / 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 1300px) {
+    gap: 100px;
+    padding: 0 30px;
+  }
+}
+
+.logo_active {
+  display: none;
+}
+
+.header__list_active {
+  display: flex;
+
+  @media (max-width: 1025px) {
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+    justify-content: center;
+  }
+
+  @media (max-height: 600px) and (orientation: landscape) {
+    flex-direction: row;
+    padding: 0px 20px;
+    justify-content: space-between;
+    gap: 20px;
+  }
+}
+
+.header__list {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1025px) {
+    li {
+      display: none;
+    }
+  }
+}
+
+.header__menu_active {
+  border-bottom: none;
+
+  @media (max-width: 1025px) {
+    background: linear-gradient(315deg, rgba(0, 58, 233, 0.859), rgba(0, 0, 0, 0.724) 80%);
+    @include filter;
+    display: grid;
+    min-height: 100dvh;
+    overflow: hidden;
+
+    @supports (-webkit-touch-callout: none) {
+      & {
+        min-height: -webkit-fill-available;
+      }
+    }
+  }
+}
+
+.header__link {
+  cursor: pointer;
+  text-shadow: 0px 10px 60px blue;
+  transition: all .4s linear;
+  display: flex;
+  align-items: center;
+  @include adaptiv-FZ (30, 18, 1920, px);
+
+  &:hover,
+  &:hover a {
+    color: var(--second-color);
+    transition: all .4s linear;
+    text-shadow: 0px 2px 20px var(--second-color);
+  }
+
+  @media (max-width: 1025px) {
+    @include adaptiv-FZ(70, 40, 990, px);
+  }
+
+  @media (max-height: 600px) and (orientation: landscape) {
+    @include adaptiv-FZ(35, 10, 990, px);
+  }
+}
+
+.soundWidgetHeader {
+  @media (max-width: 1025px) and (min-width: 650px) {
+    top: 17px;
+    left: 30px;
+    width: 100px;
+    height: 30px;
+  }
+  display: none;
+}

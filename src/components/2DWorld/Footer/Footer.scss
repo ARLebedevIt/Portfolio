@@ -1,0 +1,21 @@
+@import '../../../App.scss';
+
+.content__footer{
+  border-top: 2px dotted var(--color);
+  @include filter;
+  z-index: 6;
+  display: grid;
+  grid-area: f;
+  @include adaptiv-FZ(23, 17, 1920, px);
+}
+
+.footer__items{
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.footer__item{
+  text-align: center;
+}

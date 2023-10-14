@@ -1,0 +1,231 @@
+@import '../../../App.scss';
+
+.preloader__container {
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 12;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.holoMobile__img {
+  position: fixed;
+  bottom: 35%;
+  opacity: 0;
+  right: 0%;
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  overflow: visible;
+  mix-blend-mode: lighten;
+  transition: 1.5s all linear;
+  @media (max-width: 990px) and (orientation: landscape) {
+    bottom: 0%;
+    transition: 1.5s all linear;
+  }
+  @media (min-width: 1026px) {
+    display: none;
+  }
+}
+
+.preloader__item {
+  transition: .6s all linear;
+  z-index: 3;
+}
+
+.preloader__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__item_button {
+  opacity: 0;
+  transition: 1.5s all linear;
+  cursor: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+/*__________HOLO__________*/
+
+$holo-color: #0b95ff;
+$width: 200px;
+$height: 10px;
+
+.holo {
+  z-index: 2;
+  width: $width;
+  height: $height;
+  margin: -5px auto 0;
+  background-color: rgba($holo-color, .35);
+  border-radius: 100%;
+  filter: blur(2.5px);
+  transform: perspective(120px) rotateX(-40deg);
+  transform-style: preserve-3d;
+  animation: holographic 1.5s infinite alternate;
+  -webkit-animation: holographic 1.5s infinite alternate;
+  backface-visibility: hidden;
+  &::after {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    content: "";
+    height: 10px;
+    background-color: rgba($holo-color, 1);
+    border-radius: 100%;
+  }
+  @media (max-width: 1025px) {
+    display: none;
+  }
+}
+
+@keyframes floatHolo {
+  from {
+    will-change: unset;
+    transform: translateY(-10px)
+  }
+  to {
+    will-change: transform;
+    transform: translateY(-30px)
+  }
+}
+
+@keyframes holographic {
+  from {
+    will-change: box-shadow;
+    -webkit-box-shadow:
+      0 -75px 5px rgba($holo-color, .15),
+      0 -1px 2px rgba($holo-color, .5),
+      0 -45px 5px rgba($holo-color, .15),
+      0 -2px 3px rgba($holo-color, .5),
+      0 -3px 4px rgba($holo-color, .5),
+      0 -4px 6px rgba($holo-color, .5),
+      0 -5px 10px rgba($holo-color, .75),
+      0 -7px 20px rgba($holo-color, .75),
+      0 -10px 30px rgba($holo-color, .75),
+      0 -15px 40px rgba($holo-color, .75),
+      0 -25px 50px rgba($holo-color, .75),
+      0 -35px 60px rgba($holo-color, .85),
+      0 -45px 70px rgba($holo-color, .95),
+      0 -65px 80px rgba($holo-color, 1),
+      0 -75px 90px rgba($holo-color, 1), ;
+  }
+  to {
+    will-change: unset;
+    -webkit-box-shadow:
+      0 -1px 5px rgba($holo-color, .15),
+      0 -1px 2px rgba($holo-color, .5),
+      0 -1px 5px rgba($holo-color, .15),
+      0 -2px 3px rgba($holo-color, .5),
+      0 -3px 4px rgba($holo-color, .5),
+      0 -4px 6px rgba($holo-color, .5),
+      0 -5px 7px rgba($holo-color, .75),
+      0 -7px 10px rgba($holo-color, .75),
+      0 -10px 15px rgba($holo-color, .75),
+      0 -15px 20px rgba($holo-color, .75),
+      0 -25px 25px rgba($holo-color, .75),
+      0 -35px 30px rgba($holo-color, .85),
+      0 -45px 35px rgba($holo-color, .95),
+      0 -65px 40px rgba($holo-color, 1),
+      0 -75px 50px rgba($holo-color, 1), ;
+  }
+}
+
+.holo_text {
+  text-align: center;
+  position: relative;
+  @include adaptiv-FZ(70, 40, 1920, px);
+  @media (min-width: 1500px) {
+    animation: floatHolo 1s infinite alternate;
+  }
+}
+
+/*__________SVG PRELOADER__________*/
+.preloader__loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  @media (max-width: 990px) and (orientation: landscape) {
+    width: 115px;
+    height: 115px;
+  }
+}
+
+.loading__circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.loading__circle_one {
+  left: 0%;
+  top: 0%;
+  animation: loadingCircleOne 1.2s linear infinite;
+  border-bottom: 8px solid #0074f9;
+}
+
+.loading__circle_two {
+  top: 0%;
+  right: 0%;
+  animation: loadingCircleTwo 1.2s linear infinite;
+  border-right: 8px solid #0074f9;
+}
+
+.loading__circle_three {
+  right: 0%;
+  bottom: 0%;
+  animation: loadingCircleThree 1.2s linear infinite;
+  border-top: 8px solid #0074f9;
+}
+
+@keyframes loadingCircleOne {
+  0% {
+    transform: rotateX(40deg) rotateY(-40deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(40deg) rotateY(-40deg) rotateZ(360deg);
+  }
+}
+
+@keyframes loadingCircleTwo {
+  0% {
+    transform: rotateX(50deg) rotateY(15deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(15deg) rotateZ(360deg);
+  }
+}
+
+@keyframes loadingCircleThree {
+  0% {
+    transform: rotateX(15deg) rotateY(50deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(15deg) rotateY(50deg) rotateZ(360deg);
+  }
+}

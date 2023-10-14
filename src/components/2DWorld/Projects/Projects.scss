@@ -1,0 +1,19 @@
+@import '../../../App.scss';
+
+.content__projects {
+  @include filter;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  @media (max-width: 400px) {
+    padding-top: 60%;
+  }
+}
+
+.projects__title {
+  padding: 0 0 2% 0;
+  @include adaptiv-FZ(60, 30, 1920, px);
+  text-align: center;
+  transform: skew(10deg);
+  text-shadow: var(--shadow);
+}

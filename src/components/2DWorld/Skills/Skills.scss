@@ -1,0 +1,120 @@
+@import '../../../App.scss';
+
+.content__skills {
+  @include filter;
+  position: relative;
+  padding: 0 30px;
+  &::after {
+    content: '';
+    animation: animDrone 2s ease infinite alternate;
+    position: absolute;
+    top: 8%;
+    left: 5%;
+    width: 30%;
+    height: 30%;
+    background: url('../../../assets/image/drone.png')center/ contain no-repeat;
+  }
+  @media (max-width: 990px) {
+    &::after {
+      top: 5%;
+      left: 57%;
+      width: 35%;
+      height: 35%;
+    }
+  }
+  @media (max-width: 650px) and (orientation: portrait) {
+    padding-top: 25%;
+    &::after {
+      top: 12%;
+      left: 55%;
+      width: 35%;
+      height: 35%;
+    }
+  }
+  @media (max-width: 400px) {
+    padding-top: 90%;
+    &::after {
+      top: 30%;
+      left: 50%;
+      width: 42%;
+      height: 42%;
+    }
+  }
+}
+
+@keyframes animDrone {
+  0% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(2%);
+  }
+}
+
+.skills__item {
+  position: relative;
+  @include adaptiv-FZ(32, 10, 1920, px);
+  word-wrap: break-word;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: space-around;
+  transform: skew(10deg);
+  text-shadow: var(--shadow);
+  @media (max-width: 990px) {
+    flex-direction: column;
+    transform: skew(7deg);
+    align-items: center;
+    gap: 20px;
+  }
+  @media (max-width: 374px) {
+    transform: skew(0deg);
+    margin-left: 0px;
+  }
+}
+
+.skills__item_title {
+  @include adaptiv-FZ(72, 40, 1920, px);
+  @media (max-width: 990px) {
+    h1 {
+      @include adaptiv-FZ(50, 15, 990, px);
+    }
+  }
+  @media (max-width: 374px) {
+    h1 {
+      @include adaptiv-FZ(22, 18, 374, px);
+    }
+  }
+}
+
+.skills_tech {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills__item_img {
+  will-change: transform;
+  @include photoAdaptive;
+  @media (max-width: 990px) {
+    padding-bottom: 70%;
+  }
+  @media (max-width: 650px) {
+    transform: translateX(-205%) translateY(-25%);
+    padding-bottom: 110%;
+    & img {
+      width: 200%;
+      height: 200%;
+    }
+  }
+  @media (max-width: 400px) {
+    transform: translateX(-260%);
+    padding-bottom: 70%;
+    & img {
+      top: 0%;
+      width: 250%;
+      height: 250%;
+    }
+  }
+  @media (min-width: 1910px) {
+    padding-bottom: 50%;
+  }
+}

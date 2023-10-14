@@ -1,0 +1,147 @@
+@import '../../../App.scss';
+
+.glitchText {
+  text-shadow: 2px 2px 40px #0008ff;
+  color: #2703ee;
+  transform: scaleX(var(--scale, 1));
+
+  @media (min-width: 1200px) {
+    &::before,
+    &::after {
+      --top: 0;
+      --f-size: 15;
+      --left: 0;
+      --v-height: 10%;
+      --n-tenth: calc(var(--f-size) * .1 * var(--top));
+      --t-cut: calc(var(--n-tenth) / var(--f-size) * 100%);
+      --b-cut: calc(var(--t-cut) + var(--v-height));
+      content: attr(data-text);
+      position: absolute;
+      width: 100%;
+      left: 0;
+      transform: translateX(calc(var(--left) * 100%));
+      filter: drop-shadow(0 0 transparent);
+      text-shadow: calc(var(--left) * -2em) 0 .02em rgb(247, 0, 255),
+      calc(var(--left) * -3em) 0 .02em #03fa6e;
+      clip-path: polygon(0% var(--t-cut), 100% var(--t-cut), 100% var(--b-cut), 0% var(--b-cut));
+    }
+    z-index: 0;
+    animation: glitch-p 5s infinite 0.01s alternate;
+
+    &::before {
+      -webkit-animation: glitch-b 1.7s infinite alternate-reverse;
+      animation: glitch-b 1.7s infinite alternate-reverse;
+    }
+
+    &::after {
+      -webkit-animation: glitch-a 3.1s infinite alternate;
+      animation: glitch-a 3.1s infinite alternate;
+    }
+  }
+}
+
+
+@keyframes glitch-p {
+  17% {
+    --scale: .87;
+  }
+
+  31% {
+    --scale: .80;
+  }
+
+  37% {
+    --scale: .77;
+  }
+
+  47% {
+    --scale: .91;
+  }
+
+  100% {
+    --scale: .99;
+  }
+}
+
+@keyframes glitch-a {
+
+  10%,
+  30%,
+  50%,
+  70%,
+  100% {
+    --top: 0;
+    --left: 0;
+  }
+
+  0% {
+    --v-height: 12%;
+  }
+
+  20% {}
+
+  40% {
+    --v-height: 20%;
+    --top: 3;
+  }
+
+  60% {
+    --v-height: 25%;
+    --top: 6;
+  }
+
+  80% {
+    --v-height: 5%;
+    --top: 8;
+  }
+
+  100% {
+    --v-height: 20%;
+    --top: 1;
+  }
+}
+
+@keyframes glitch-b {
+
+  10%,
+  30%,
+  50%,
+  70%,
+  100% {
+    --top: 0;
+    --left: 0;
+  }
+
+  0% {
+    --v-height: 10%;
+    --top: 10;
+  }
+
+  20% {
+    --left: -.003;
+  }
+
+  40% {
+    --left: -.01;
+    --v-height: 17%;
+    --top: 3;
+  }
+
+  60% {
+    --left: -.01;
+    --v-height: 35%;
+    --top: 6;
+  }
+
+  80% {
+    --left: -.07;
+    --v-height: 5%;
+    --top: 8;
+  }
+
+  100% {
+    --left: -.063;
+    --v-height: 10%;
+    --top: 1;
+  }
+}

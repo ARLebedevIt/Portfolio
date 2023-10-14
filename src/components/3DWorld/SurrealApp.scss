@@ -1,0 +1,33 @@
+@import '../../App.scss';
+
+.surreal__preloader {
+  height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    & {
+      height: -webkit-fill-available;
+    }
+  }
+  & span {
+    font-size: 30px;
+    font-family: defFont;
+  }
+}
+
+.surrealWorld__wrapper {
+  position: relative;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#canvasSurrealWorld canvas {
+  width: 100vh;
+  min-height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    & {
+      min-height: -webkit-fill-available;
+    }
+  }
+}

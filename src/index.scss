@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+input,
+button,
+textarea {
+  font-family: defFont;
+}
+
+button:disabled {
+  background: linear-gradient(315deg, rgb(119, 119, 119), rgb(10, 10, 10) 100%);
+  text-decoration: underline;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--second-color);
+  position: relative;
+}
+
+a,
+a:visited {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--color);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: defFont;
+  src: url('./assets/fonts/conthrax-sb.ttf');
+}
+
+// Variables
+:root{
+  --color: #0040ff;
+  --second-color: #fefefe;
+  --shadow: -30px 40px 60px blue;
+}

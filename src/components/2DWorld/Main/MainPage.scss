@@ -1,0 +1,73 @@
+@import '../../../App.scss';
+
+.content__mainPage {
+  @include filter;
+  position: relative;
+  min-height: 100dvh;
+  background: url('../../../assets/image/spaceBackground.jpg') center / cover no-repeat;
+}
+
+.mainPage__items {
+  mix-blend-mode: lighten;
+  display: grid;
+  flex-direction: column;
+  grid-template: 1px 1fr / 1fr;
+}
+
+.mainPage__video {
+  position: relative;
+  right: 1%;
+  & video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+  }
+
+  @media (min-width: 320px) and (max-width: 650px) {
+    padding-top: 5vh;
+    & video {
+      mix-blend-mode: lighten;
+      object-fit: cover;
+      height: 80vh;
+    }
+  }
+  @media (min-width: 650px) and (max-width: 1300px) {
+    & video {
+      object-fit: cover;
+      height: 100vh;
+    }
+  }
+  @media (max-height: 800px) and (orientation: landscape) {
+    & video {
+      mix-blend-mode: lighten;
+      object-fit: contain;
+    }
+  }
+  @media (min-width: 990px) and (max-height: 1080px) {
+    & video {
+      object-fit: contain;
+    }
+  }
+}
+
+.mainPage__item_logo {
+  text-align: center;
+  @include adaptiv-FZ(120, 35, 990, px);
+  @media (max-width: 990px) {
+    @include adaptiv-FZ(120, 40, 990, px);
+    padding-top: 10px;
+  }
+  @media (min-width: 990px) {
+    @include adaptiv-FZ(120, 30, 990, px);
+  }
+  @media (min-width: 990px) and (max-height: 850px) {
+    @include adaptiv-FZ(120, 30, 990, px);
+  }
+  @media (min-width: 1600px) {
+    margin-top: 0px;
+  }
+  @media (min-width: 1910px) {
+    margin-top: 15%;
+    font-size: 250px;
+  }
+}

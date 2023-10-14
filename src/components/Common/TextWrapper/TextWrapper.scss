@@ -1,0 +1,14 @@
+@import '../../../App.scss';
+
+.textWrapper {
+  white-space: pre-wrap;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  line-height: 130%;
+  gap: 24px;
+  @media (max-width: 990px) {
+    width: 85%;
+    @include adaptiv-FZ(34, 15, 990, px);
+  }
+}

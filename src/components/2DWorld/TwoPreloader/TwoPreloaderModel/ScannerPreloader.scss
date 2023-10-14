@@ -1,0 +1,26 @@
+@import '../../../../App.scss';
+
+canvas{
+  position: absolute;
+  top: 0%;
+  left: -1%;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+ }
+
+.wrapperScan{
+  background: transparent;
+  position: absolute;
+  top: 0%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  z-index: -5;
+  @media (max-width: 990px) and (orientation: landscape) {
+    top: -10%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+  }
+}
